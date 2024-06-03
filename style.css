@@ -111,7 +111,7 @@ h2, h3 {
     animation: glow 1s ease-in-out infinite alternate;
   }
   
-  @-webkit-keyframes glow {
+  @keyframes glow {
     from {
       text-shadow: 0 0 10px red, 0 0 20px purple, 0 0 30px red, 0 0 40px purple, 0 0 50px red, 0 0 60px purple, 0 0 70px red;
     }
@@ -120,3 +120,79 @@ h2, h3 {
       text-shadow: 0 0 20px blue, 0 0 30px blue, 0 0 40px blue, 0 0 50px blue, 0 0 60px blue, 0 0 70px blue, 0 0 80px blue;
     }
   }
+
+         /* portfolio styles */
+         .content h1 {
+            color: black;
+        }
+
+        #portfolio {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        #portfolio li {
+            background: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        #portfolio li:hover {
+            background: #eee;
+        }
+
+        #portfolio a {
+            text-decoration: none;
+            color: #454545;
+        }
+
+            /* responsive web design */
+            @media screen and (min-width: 120px) and (max-width: 1080px) {
+                main {
+                  height: 100ch;
+                  zoom: 1.5;
+                  display: grid;
+                }
+  
+                h1 {
+                  font-size: 44px;
+                }
+  
+                h2 {
+                  font-size: 42px;
+                }
+  
+                h3 {
+                  font-size: 36px;
+                }
+  
+                #all-contents {
+                  height: 100ch;
+                  margin: none;
+                }
+  
+                a {
+                  font-size: 42px;
+                }
+  
+                .sidebar {
+                  margin-right: 0px;
+                  justify-content: center;
+                  align-items: center;
+                }
+  
+                .sidebar-img {
+                  width: 100%;
+                }
+  
+                p,
+                li {
+                  font-size: 24px;
+                }
+  
+                .content {
+                  align-content: center;
+                  justify-content: center;
+                }
+            }
