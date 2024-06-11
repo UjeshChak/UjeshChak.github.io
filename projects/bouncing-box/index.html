@@ -52,8 +52,9 @@
 			box.on('click', handleBoxClick);
 
 			// moves the Box to a new position on the screen along the X-Axis
-			function moveBoxTo(newPositionX) {
+			function moveBoxTo(newPositionX, newPositionY) {
 				box.css("left", newPositionX);
+				box.css('top', newPositionY);
 			}
 
 			// changes the text displayed on the Box
@@ -69,6 +70,10 @@
 			var positionX;
 			var points = 0;
 			var speed = 10;
+			var speed2 = 10;
+			var positionY;
+			var speedY;
+			var boardHeight = jQuery(window).height(); 
 
 
 			
@@ -79,14 +84,20 @@
 			*/
 			function update() {
 				positionX = positionX + speed;
-				moveBoxTo(positionX);
+				moveBoxTo(positionX, positionY);
 				if (positionX > boardWidth) {
 					speed = speed * -1;
 				}
 				if (positionX < 0) {
 					speed = speed * -1;
 				}
-
+				positionY = positionY + speed2;
+				if (positionY > boardHeight) {
+					speed2 = speed2 * -1;
+				}
+				if (positionY < 0) {
+					speed2 = speed2 * -1;
+				}
 			};
 
 			/* 
@@ -95,18 +106,28 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-				var randNum = Math.random() * 100;
-				if (randNum > boardWidth) {
-					randNum = randNum - 1;
+				for (var i = 0; i < 1000000000000000; i++) { 
+				var randNum = Math.random() * 1000;
+				var randNum2 = Math.random() * 1000;
+				if (randNum < boardWidth && randNum2 < boardHeight) {
+					break;
+				}
 				}
 				positionX = randNum;
+				positionY = randNum2;
 				points = points + 1;
 				changeBoxText(points);
 				if (speed > 0) {
 					speed = speed + 3;
 				}
-				else if (speed < 0) {
+				if (speed < 0) {
 					speed = speed - 3;
+				}
+				if (speed2 > 0) {
+					speed2 = speed2 + 3;
+				}
+				else if (speed < 0) {
+					speed2 = speed2 - 3;
 				}
 			};
 		})();
